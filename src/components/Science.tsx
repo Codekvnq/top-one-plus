@@ -186,11 +186,11 @@ const Science: React.FC = () => {
                 </div>
               </div>
               <div className="relative">
-                <img
-                  src="/showcase.png"
-                  alt="Seaweed extract research"
-                  className="mx-auto h-96 w-auto max-h-[32rem] object-contain rounded-2xl shadow-lg bg-white dark:bg-gray-900"
-                />
+             <img
+  src="/showcase.png"
+  alt="Seaweed extract research"
+  className="mx-auto w-full max-w-3xl h-64 object-cover rounded-2xl shadow-lg bg-white dark:bg-gray-900"
+/>
                 <div className="absolute inset-0 bg-gradient-to-t from-primary-500/20 to-transparent rounded-2xl"></div>
               </div>
             </div>

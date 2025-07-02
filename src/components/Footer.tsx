@@ -1,19 +1,46 @@
 import React from 'react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Sprout, Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Sprout, Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, Check } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-    const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
 
-   const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-      console.log('Submitting:', email); // Debug log
+    
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setMessage('Please enter a valid email address');
+      return;
+    }
 
+    setIsSubmitting(true);
+    
+    // Mock subscription - comment out the actual backend code
+    try {
+      // Mock delay to simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Mock successful subscription
+      setMessage('Thank you for subscribing!');
+      setSubscribed(true);
+      
+      // If you want to keep the email for later use when backend is ready
+      console.log('Mock subscription with email:', email);
+      
+    } catch (error) {
+      setMessage('Subscription failed. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+
+    /* Comment out the actual backend code for now
     try {
       const response = await fetch(
         `https://${import.meta.env.VITE_MAILCHIMP_SERVER}.api.mailchimp.com/3.0/lists/${import.meta.env.VITE_MAILCHIMP_LIST_ID}/members`,
@@ -47,9 +74,8 @@ const Footer: React.FC = () => {
     } finally {
       setIsSubmitting(false);
     }
+    */
   };
-
-
 
   const quickLinks = [
     { label: 'Benefits', href: '#benefits' },
@@ -59,7 +85,7 @@ const Footer: React.FC = () => {
   ];
 
   const contactInfo = [
-    { icon: Phone, label: '+233 123 456 789', href: 'tel:+233123456789' },
+    { icon: Phone, label: '+233 20 798 3775', href: 'tel:+233207983775' },
     { icon: Mail, label: 'info@asaasenua.com', href: 'mailto:info@asaasenua.com' },
     { icon: MapPin, label: 'Accra, Ghana', href: '#' },
   ];
@@ -91,15 +117,17 @@ const Footer: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2"
           >
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center">
-                <Sprout className="w-7 h-7 text-white" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-heading font-bold">ASAASE NUA</h3>
-                <p className="text-gray-400 text-sm">Top One Plus</p>
-              </div>
-            </div>
+         <div className="flex items-center space-x-3 mb-6">
+  <img
+    src="/logo.png"
+    alt="Top One Plus Logo"
+    className="w-12 h-12 rounded-full object-cover shadow-lg"
+  />
+  <div>
+    <h3 className="text-2xl font-heading font-bold">TOP ONE PLUS</h3>
+    <p className="text-gray-400 text-sm"> Asaase nua</p>
+  </div>
+</div>
             
             <p className="text-gray-400 leading-relaxed mb-6 max-w-md">
               Transforming agriculture through innovative organic fertilizer solutions. 
@@ -212,7 +240,7 @@ const Footer: React.FC = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           className={`p-3 rounded-lg text-sm ${
-            message.includes('Success')
+            message.includes('Thank you') || message.includes('Success')
               ? 'bg-green-900/30 text-green-400'
               : 'bg-red-900/30 text-red-400'
           }`}
@@ -221,36 +249,55 @@ const Footer: React.FC = () => {
         </motion.div>
       )}
     </div>
-    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Your best email"
-        className="flex-1 px-4 py-3 bg-gray-700 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
-        required
-        disabled={isSubmitting}
-      />
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className={`px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-2 ${
-          isSubmitting ? 'opacity-80 cursor-not-allowed' : ''
-        }`}
+    
+    {subscribed ? (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="w-full"
       >
-        {isSubmitting ? (
-          <>
-            <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-            Processing...
-          </>
-        ) : (
-          'Subscribe'
-        )}
-      </button>
-    </form>
+        <button
+          className="w-full px-6 py-3 bg-green-500 text-white font-semibold rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+        >
+          <Check className="w-5 h-5" />
+          Subscribed
+        </button>
+      </motion.div>
+    ) : (
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            if (message) setMessage(''); // Clear error message when typing
+          }}
+          placeholder="Your best email"
+          className="flex-1 px-4 py-3 bg-gray-700 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+          required
+          disabled={isSubmitting}
+        />
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className={`px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-2 ${
+            isSubmitting ? 'opacity-80 cursor-not-allowed' : ''
+          }`}
+        >
+          {isSubmitting ? (
+            <>
+              <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Processing...
+            </>
+          ) : (
+            'Subscribe'
+          )}
+        </button>
+      </form>
+    )}
   </div>
 </motion.div>
 

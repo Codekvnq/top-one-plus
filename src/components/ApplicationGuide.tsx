@@ -9,9 +9,9 @@ const ApplicationGuide: React.FC = () => {
   const applications = [
     {
       crop: "Rice",
-      dosage: "2-3 ml/L",
+      dosage: "30-15 ml/L",
       period: "Vegetative & Reproductive",
-      method: "Foliar Spray",
+      method: "knap sack spray",
       notes: "Apply early morning or evening for best results",
       icon: "🌾",
       expectedIncrease: "70-90%",
@@ -31,9 +31,9 @@ const ApplicationGuide: React.FC = () => {
     },
     {
       crop: "Maize/Corn",
-      dosage: "2-3 ml/L",
+      dosage: "30-15 ml/L",
       period: "V6 to Tasseling",
-      method: "Foliar Spray",
+      method: "knap sack spray",
       notes: "Enhances kernel development",
       icon: "🌽",
       expectedIncrease: "60-85%",
@@ -42,9 +42,9 @@ const ApplicationGuide: React.FC = () => {
     },
     {
       crop: "Cocoa",
-      dosage: "3-5 ml/L",
+      dosage: "30-40 ml/L",
       period: "Year Round",
-      method: "Foliar + Soil",
+      method: "Knap sack / motorized machine",
       notes: "Improves pod quality and yield",
       icon: "🍫",
       expectedIncrease: "50-75%",
@@ -53,9 +53,9 @@ const ApplicationGuide: React.FC = () => {
     },
     {
       crop: "Vegetables",
-      dosage: "2-4 ml/L",
+      dosage: "20-30 ml/L",
       period: "Weekly",
-      method: "Foliar Spray",
+      method: "knap sack spray",
       notes: "Safe for all vegetable types",
       icon: "🥬",
       expectedIncrease: "70-95%",

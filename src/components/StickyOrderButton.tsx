@@ -20,14 +20,14 @@ const StickyOrderButton: React.FC = () => {
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      action: () => window.open("https://wa.me/233123456789?text=Hello! I'm interested in Top One Plus Organic Fertilizer", "_blank"),
+      action: () => window.open("https://wa.me/233207983775?text=Hello! I'm interested in Top One Plus Organic Fertilizer", "_blank"),
       color: "from-green-500 to-green-600",
       hoverColor: "hover:from-green-600 hover:to-green-700"
     },
     {
       icon: Phone,
       label: "Call Now",
-      action: () => window.open("tel:+233123456789", "_self"),
+      action: () => window.open("tel:233207983775", "_self"),
       color: "from-blue-500 to-blue-600",
       hoverColor: "hover:from-blue-600 hover:to-blue-700"
     }
