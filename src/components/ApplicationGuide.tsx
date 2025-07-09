@@ -85,7 +85,7 @@ const ApplicationGuide: React.FC = () => {
         "Mix 2-5 ml per liter of clean water",
         "Spray during cool hours (early morning/evening)",
         "Ensure complete coverage of both leaf surfaces",
-        "Avoid application during rain or high winds"
+        
       ],
       tips: [
         "Use fine mist nozzle for better coverage",
@@ -173,6 +173,9 @@ const ApplicationGuide: React.FC = () => {
             <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
               Top One Plus
             </span>
+              <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
+                Organic Fertilizer
+              </p>
           </h2>
           
           <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">

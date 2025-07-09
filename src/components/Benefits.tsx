@@ -120,6 +120,10 @@ const Benefits: React.FC = () => {
             <span className="bg-gradient-to-r from-primary-600 to-emerald-600 bg-clip-text text-transparent">
               Top One Plus
             </span>
+            <br/>
+             <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
+                Organic Fertilizer
+              </p>
           </h2>
           
           <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
