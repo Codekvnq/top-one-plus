@@ -86,8 +86,8 @@ const Footer: React.FC = () => {
 
   const contactInfo = [
     { icon: Phone, label: '+233 20 798 3775', href: 'tel:+233207983775' },
-    { icon: Mail, label: 'info@asaasenua.com', href: 'mailto:info@asaasenua.com' },
-    { icon: MapPin, label: 'Accra, Ghana', href: '#' },
+    { icon: Mail, label: 'karikarimark0248@gmail.com', href: 'mailto:karikarimark0248@gmail.com' },
+    { icon: MapPin, label: 'Kumasi, Ghana', href: '#' },
   ];
 
   const socialLinks = [
