@@ -169,7 +169,12 @@ const Hero: React.FC = () => {
                   </span>
                   <br />
                   <span className="text-white">PLUS</span>
+                   <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
+                Organic Fertilizer
+              </p>
                 </h1>
+    
+                 
                 <div className="flex items-center space-x-3">
                   <Sparkles className="w-6 h-6 text-yellow-400" />
                   <motion.p
@@ -328,11 +333,14 @@ const Hero: React.FC = () => {
                 }}
                 className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-2xl"
               >
-                <img
-                  src="/product.png"
-                  alt="Top One Plus Product"
-                  className="w-80 h-96 object-cover rounded-2xl shadow-xl"
-                />
+                {/* Fixed image for mobile devices */}
+                <div className="w-full flex justify-center">
+                  <img
+                    src="/product.png"
+                    alt="Top One Plus Product"
+                    className="w-auto max-w-full h-auto max-h-[40vh] md:max-h-96 object-contain rounded-2xl shadow-xl"
+                  />
+                </div>
                 
                 {/* Product Badge */}
                 <div className="absolute top-4 left-4 bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
